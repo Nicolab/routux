@@ -4,10 +4,10 @@ __In progress__
 
 The code source is fully documented, see:
 
-  * [src/index.js](src/index.js)
-  * [src/Router.js](src/Router.js)
-  * [src/Route.js](src/Route.js)
-  * Also, [examples](examples) directory.
+  * [/src/index.js](/src/index.js)
+  * [/src/Router.js](/src/Router.js)
+  * [/src/Route.js](/src/Route.js)
+  * Also, [examples](/examples) directory.
 
 
 ## Basic routes
@@ -389,7 +389,7 @@ router.use(function(err, req, next) {
 ## Location
 
 The router uses `location` object to determine the current state of the application and update it when needed.
-<br>By default the [HashLocation](src/lib/locations/HashLocation.js) adapter is used.<br>
+<br>By default the [HashLocation](/src/lib/locations/HashLocation.js) adapter is used.<br>
 You can also supply the router with your own `location` implementation by creating your own adapter.
 
 ### API
@@ -512,5 +512,5 @@ console.log(router.location.urlPrefix);
 ### Location adapter
 
 If you need your own `location` implementation, you can create your own `location` adapter.
-<br>See [HashLocation](src/lib/locations/HashLocation.js) for a good example.
+<br>See [HashLocation](/src/lib/locations/HashLocation.js) for a good example.
 

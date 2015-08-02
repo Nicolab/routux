@@ -35,7 +35,7 @@ router.run();
 
 ### Or install from source file
 
-Download [dist/routux.min.js](https://rawgit.com/Nicolab/routux/master/dist/routux.min.js) file and add in your HTML file:
+Download [dist/routux.min.js](https://cdn.rawgit.com/Nicolab/routux/master/dist/routux.min.js) file and add in your HTML file:
 
 ```html
 <script src="./path-of-your-js-files/routux.min.js"></script>
@@ -53,15 +53,22 @@ router.use('/', function(req, next) {
 router.run();
 ```
 
+#### Use CDN
+
+```html
+<script src="https://cdn.rawgit.com/Nicolab/routux/master/dist/routux.min.js"></script>
+```
+
+You can change `master` by a [specific version](https://github.com/Nicolab/routux/releases).
 
 ## Usage
 
-See the [doc](doc.md) and the [examples](examples) directory.
+See the [doc](/doc/index.md) and the [examples](/examples) directory.
 
 
 ## Development of Routux core
 
-Routux is developped in ES6 (EcmaScript6) in [src](https://github.com/Nicolab/routux/tree/master/src) directory and compiled to ES5 in the [dist/routux.min.js](https://raw.githubusercontent.com/Nicolab/routux/master/dist/routux.min.js) file.
+Routux is developped in ES6 (EcmaScript6) in [src](https://github.com/Nicolab/routux/tree/master/src) directory and compiled to ES5 in the [dist/routux.min.js](https://cdn.rawgit.com/Nicolab/routux/master/dist/routux.min.js) file.
 
 Build a minified distributable, in the terminal:
 ```sh
