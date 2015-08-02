@@ -3,6 +3,9 @@ test/
 node_modules/
 local/
 public/
+doc/
+examples/
+tasks/
 .Trash-1000/
 .DS_Store
 Thumbs.db
