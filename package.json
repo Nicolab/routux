@@ -1,6 +1,6 @@
 {
   "name": "routux",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "A fast and productive router to improve the UX (User eXperience) of any front-end application (supports middlewares, regex pattern, named routes, error handler, ...).",
   "keywords": [
     "router",
