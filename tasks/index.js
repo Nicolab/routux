@@ -57,8 +57,9 @@ cfg = {
     port: 8080
   },
 
-  banner: '/*! '+ pkg.name + ' v'+ pkg.version + ' | ' +
-    ' (c) '+ (new Date().getFullYear()) +' '+ pkg.homepage +' */',
+  banner: '/*! '+ pkg.name + ' v'+ pkg.version + ' | '+ pkg.licenses[0].type +
+    ' (c) '+ (new Date().getFullYear()) +' ' + pkg.author.name +
+    ' - ' + pkg.homepage +' */',
 
   test: {
     src: [
