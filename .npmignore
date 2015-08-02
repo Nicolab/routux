@@ -1,4 +1,6 @@
 *.log
+gulpfile.babel.js
+.jshintrc
 test/
 node_modules/
 local/
