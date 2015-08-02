@@ -1,0 +1,88 @@
+<%
+/**
+ * This file is part of Routux.
+ *
+ * (c) Nicolas Tallefourtane <dev@nicolab.net>
+ *
+ * For the full copyright and license information, please view the LICENSE file
+ * distributed with this source code or visit https://github.com/Nicolab/routux.
+ */
+%><!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Browser tests - routux</title>
+  <link href="https://cdn.rawgit.com/mochajs/mocha/2.2.5/mocha.css" rel="stylesheet" />
+  <%- block('head').toString() %>
+  <script>
+    var __report = {};
+  </script>
+</head>
+<body>
+  <div id="mocha"></div>
+  <%-body -%>
+  <div id="result"></div>
+
+  <script src="https://cdn.rawgit.com/jquery/jquery/2.1.4/dist/jquery.min.js"></script>
+  <script src="https://cdn.rawgit.com/mochajs/mocha/2.2.5/mocha.js"></script>
+  <script src="https://cdn.rawgit.com/lodash/lodash/3.10.0/lodash.min.js"></script>
+  <script src="https://cdn.rawgit.com/unitjs/unit.js/v2.0.0/browser/dist/unit.js"></script>
+  <script src="/routux.min.js"></script>
+
+  <%- block('jsFiles').toString() %>
+
+  <script>
+    mocha.setup({
+      ui: 'bdd',
+      ignoreLeaks: true
+    });
+  </script>
+
+  <script src="./main.test.js"></script>
+  <%- block('testFiles').toString() %>
+
+  <script>
+    var runner;
+    function run() {
+      runner = mocha.run();
+
+      runner.on('end', function() {
+        var runnerEl;
+        var currentRunnable = runner.currentRunnable;
+
+        __report = _.merge(__report, {
+          runnerState: 'end',
+          stats: runner.stats,
+          url: window.location.href,
+          currentRunnable: {
+            state: currentRunnable.state,
+            type: currentRunnable.type,
+            title: currentRunnable.title
+          }
+        });
+
+        __report.stats.total = runner.total;
+
+        if(currentRunnable.err) {
+          __report.err = {
+            message: currentRunnable.err.message,
+            stack: currentRunnable.err.stack
+          };
+        }
+
+        runnerEl = document.createElement('textarea');
+        runnerEl.id = 'runner';
+        runnerEl.value =JSON.stringify(__report, null, 2);
+        runnerEl.style.width = '50%';
+        runnerEl.style.height = '340px';
+        runnerEl.style.margin = '6px';
+
+        console.log(__report);
+        $('body').append(runnerEl);
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', run);
+  </script>
+</body>
+</html>
