@@ -12,7 +12,7 @@
 import Route from './Route';
 import Router from './Router';
 
-let routux = {
+var routux = {
   Router,
   Route,
   noConflict() {
@@ -29,4 +29,4 @@ if(window) {
   window.routux = routux;
 }
 
-module.exports = routux;
+export default routux;
