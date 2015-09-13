@@ -9,8 +9,8 @@
 
 'use strict';
 
-var mergeRecursive = function(obj/*, from*/) {
-  var ln = arguments.length;
+let mergeRecursive = function(obj/*, from*/) {
+  let ln = arguments.length;
 
   if (ln < 2) {
     throw new Error('There should be at least 2 arguments passed to mergeRecursive()');
@@ -29,6 +29,4 @@ var mergeRecursive = function(obj/*, from*/) {
   return obj;
 };
 
-module.exports = {
-  mergeRecursive: mergeRecursive
-};
+export default {mergeRecursive};

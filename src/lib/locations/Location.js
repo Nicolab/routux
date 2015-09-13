@@ -90,7 +90,7 @@ class Location {
   }
 
   get fullUrl() {
-    return this.baseUrl + this.url
+    return this.baseUrl + this.url;
   }
 
   ensureSlash() {

@@ -12,7 +12,7 @@
 import Route from './Route';
 import Router from './Router';
 
-var routux = {
+let routux = {
   Router,
   Route,
   noConflict() {
