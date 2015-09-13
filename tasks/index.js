@@ -84,7 +84,11 @@ cfg = {
           test: /\.js$/,
           exclude: /node_modules/,
           include: path.join(__dirname, '..', 'src'),
-          loader: 'babel-loader?stage=0&optional=runtime'
+          loader: 'babel',
+          query: {
+            optional: ['runtime'],
+            stage: 0
+          }
         }
       ]
     },
