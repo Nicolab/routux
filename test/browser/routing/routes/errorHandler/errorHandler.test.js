@@ -14,6 +14,7 @@ let test = unitjs;
 let {assert} = unitjs;
 let t = test;
 
+let routux = require('../../../../../public/routux.min.js');
 let router = new routux.Router();
 let utils = require('../../../_fixtures/utils');
 let ctrl = utils.createSpiedCtrls();

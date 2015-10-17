@@ -10,6 +10,7 @@
 'use strict';
 
 let router;
+let routux = require('../../../public/routux.min.js');
 let __   = require('../_config/');
 let test = unitjs;
 let t = test;

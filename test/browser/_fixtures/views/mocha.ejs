@@ -45,7 +45,6 @@
     var runner;
     function run() {
       runner = mocha.run();
-
       runner.on('end', function() {
         var runnerEl;
         var currentRunnable = runner.currentRunnable;

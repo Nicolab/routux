@@ -25,8 +25,4 @@ let routux = {
   }
 };
 
-if(window) {
-  window.routux = routux;
-}
-
 export default routux;

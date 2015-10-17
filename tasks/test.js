@@ -118,6 +118,7 @@ gulp.task('test.build', function(done) {
 
     // create a clone
     let webpackCfg = Object.create(cfg.webpack);
+
     webpackCfg.module.loaders[0].include = false;
     webpackCfg.entry.main = './test/browser/' + file.relative;
 
@@ -130,6 +131,7 @@ gulp.task('test.build', function(done) {
       .on('error', (err) => cb(err))
       .on('end', () => cb(null, file))
     ;
+
   };
 
   let buildEjs = (file, cb) => {

@@ -77,6 +77,8 @@ cfg = {
     },
     output: {
       filename: '[name].js',
+      library: 'routux',
+      libraryTarget: 'umd'
     },
     module: {
       loaders: [
@@ -124,7 +126,7 @@ cfg.webpackProd = Object.create(cfg.webpack);
 
 // dev
 cfg.webpackDev = Object.create(cfg.webpack);
-cfg.webpackDev.devtool = '#eval-source-map';
+cfg.webpackDev.devtool = '#inline-source-map';
 
 
 /*----------------------------------------------------------------------------*

@@ -13,9 +13,25 @@ let __   = require('../_config/');
 let test = unitjs;
 let {assert} = unitjs;
 let t = test;
+let routux;
 
 describe('Router', function() {
-  it('should be in global scope', function() {
+  it.skip('should be in global scope', function(done) {
+    test
+      .object(routux)
+        .hasProperty('Router')
+        .hasProperty('Route')
+        .hasProperty('noConflict')
+
+      .function(routux.Router)
+      .function(routux.Route)
+      .function(routux.noConflict)
+    ;
+  });
+
+  it('should be common JS', function() {
+    routux = require('../../../public/routux.min.js');
+
     test
       .object(routux)
         .hasProperty('Router')
@@ -84,7 +100,7 @@ describe('Router', function() {
     t.string(router.routes.__route_1.name).isIdenticalTo('__route_1');
   });
 
-  it('Remove routux from global (window)', function() {
+  it.skip('Remove routux from global (window)', function() {
     let _routux;
 
     test
