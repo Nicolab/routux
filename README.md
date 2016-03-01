@@ -60,10 +60,10 @@ router.run();
 ```
 
 You can change `master` by a [specific version](https://github.com/Nicolab/routux/releases).
-<br>Example for `v0.2.1`:
+<br>Example for `v0.2.6`:
 
 ```html
-<script src="https://cdn.rawgit.com/Nicolab/routux/v0.2.1/dist/routux.min.js"></script>
+<script src="https://cdn.rawgit.com/Nicolab/routux/v0.2.6/dist/routux.min.js"></script>
 ```
 
 > Note: please, use the [latest version](https://github.com/Nicolab/routux/releases/latest)
@@ -96,7 +96,7 @@ _TODO: There are still things to test._
 
 ## LICENSE
 
-[MIT](https://github.com/Nicolab/routux/blob/master/LICENSE) (c) 2015, Nicolas Tallefourtane.
+[MIT](https://github.com/Nicolab/routux/blob/master/LICENSE) (c) 2016, Nicolas Tallefourtane.
 
 
 ## Author
