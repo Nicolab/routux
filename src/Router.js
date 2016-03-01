@@ -124,6 +124,7 @@ class Router {
 
     // current request
     this.req = {
+      routeName: null,
       current: this.location.current,
       query: this.location.qs.current,
       params: {},
@@ -367,9 +368,8 @@ class Router {
       for(var iK = 0, lnK = route.regexp.keys.length; iK < lnK; iK++) {
         keyName = route.regexp.keys[iK].name;
 
-        route.query           = this.req.query;
-        route.params[keyName] = route.regexp.result[iK + 1];
-
+        route.query              = this.req.query;
+        route.params[keyName]    = route.regexp.result[iK + 1];
         this.req.params[keyName] = route.params[keyName];
       }
 
@@ -416,6 +416,9 @@ class Router {
     // list the matched routes
     for(let i = 0, ln = this._matches.length; i < ln; i++) {
       let route = this._matches[i];
+
+      // last route name
+      this.req.routeName = route.name;
 
       // add (in the stack) all middlewares of this route
       for(let mwIdx = 0, mwLn = route.middlewares.length; mwIdx < mwLn; mwIdx++) {
