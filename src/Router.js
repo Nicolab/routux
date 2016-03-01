@@ -394,6 +394,9 @@ class Router {
       if(stack.length) {
         let {route, middleware} = stack.shift();
 
+        // current route name
+        this.req.routeName = route.name;
+
         // if the middleware does not handle the error
         if(middleware.length < 3) {
           if(error) {
@@ -416,9 +419,6 @@ class Router {
     // list the matched routes
     for(let i = 0, ln = this._matches.length; i < ln; i++) {
       let route = this._matches[i];
-
-      // last route name
-      this.req.routeName = route.name;
 
       // add (in the stack) all middlewares of this route
       for(let mwIdx = 0, mwLn = route.middlewares.length; mwIdx < mwLn; mwIdx++) {
