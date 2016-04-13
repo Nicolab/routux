@@ -161,8 +161,8 @@ class Router {
       route = this.routes[route.name];
     }
 
-    if(!route instanceof Route) {
-      throw new ReferenceError(refErrorMsg);
+    if(false === route instanceof Route) {
+      throw new TypeError(refErrorMsg);
     }
 
     return route;
