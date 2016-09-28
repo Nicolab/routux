@@ -24,7 +24,7 @@ npm install routux --save
 JS:
 ```js
 var routux = require('routux');
-var router = routux.Router();
+var router = new routux.Router();
 
 router.use('/', function(req, next) {
   // Your logic here
