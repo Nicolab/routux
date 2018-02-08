@@ -83,16 +83,23 @@ cfg = {
     module: {
       loaders: [
         {
-          test: /\.js$/,
-          exclude: /node_modules/,
+          test: /\.jsx?$/,
+          exclude: /(node_modules|bower_components)/,
           include: path.join(__dirname, '..', 'src'),
-          loader: 'babel',
+          loader: 'babel', // 'babel-loader' is also a legal name to reference
           query: {
-            optional: ['runtime'],
-            stage: 0
+            // https://github.com/babel/babel-loader#options
+            cacheDirectory: true,
+            presets: [
+              'es2015',
+              'stage-1'
+            ],
+            plugins: [
+              'transform-runtime'
+            ]
           }
         }
-      ]
+      ],
     },
     plugins: [
       new webpack.IgnorePlugin(/_[a-z-A-Z0-9-]\//),
@@ -153,7 +160,10 @@ pl.minify = lazypipe()
   .pipe(gp.rename, function(file) {
     file.basename = 'routux.min';
   })
-  .pipe(gp.uglify)
+  .pipe(gp.uglify, {
+    mangle : false,
+    mangleProperties: false
+  })
   .pipe(gp.header, cfg.banner)
 ;
 
