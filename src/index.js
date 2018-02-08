@@ -12,17 +12,22 @@
 import Route from './Route';
 import Router from './Router';
 
-let routux = {
-  Router,
-  Route,
-  noConflict() {
-    if(window) {
-      window.routux = null;
-      delete window.routux;
-    }
-
-    return this;
+let noConflict = function() {
+  if(window) {
+    window.routux = null;
+    delete window.routux;
   }
 };
 
+let routux = {
+  Router,
+  Route,
+  noConflict
+};
+
 export default routux;
+export {
+  Router,
+  Route,
+  noConflict
+};

@@ -29,4 +29,4 @@ let mergeRecursive = function(obj/*, from*/) {
   return obj;
 };
 
-export default {mergeRecursive};
+export {mergeRecursive};
