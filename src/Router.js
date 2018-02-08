@@ -147,8 +147,9 @@ class Router {
    * @return {Route} The route instance.
    */
   getRoute(route) {
-    let refErrorMsg = 'First argument of "Router.getRoute()" must be a valid ' +
-      '"route" (route name or "Route" instance).'
+    let _route;
+    let refErrorMsg = 'First argument of "Router.getRoute()" must be a valid '
+      + '"route" (route name or "Route" instance).'
     ;
 
     if(!route) {
@@ -156,16 +157,18 @@ class Router {
     }
 
     if(typeof route === 'string') {
-      route = this.routes[route];
+      _route = this.routes[route];
     } else if(route.name) {
-      route = this.routes[route.name];
+      _route = this.routes[route.name];
+    } else {
+      _route = route;
     }
 
-    if(false === route instanceof Route) {
-      throw new TypeError(refErrorMsg);
+    if(_route && _route instanceof Route) {
+      return _route;
     }
 
-    return route;
+    throw new TypeError(refErrorMsg + '\n-> Given: ' + JSON.stringify(route));
   }
 
   /**
